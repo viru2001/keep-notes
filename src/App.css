@@ -3,3 +3,10 @@
   --primary-dark-color: #126069;
   --primary-light-color: #40b7c4;
 }
+
+.border-none {
+  border: none;
+}
+.cursor-pointer {
+  cursor: pointer;
+}

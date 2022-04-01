@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { HomepageImage } from "../../assets";
+import { useAuth } from "../../context";
 import "./Home.css";
 const Home = () => {
+  const {
+    auth: { status },
+  } = useAuth();
   return (
     <div className="homepage-wrapper d-flex flex-wrap align-center container-center">
       <div className="homepage-details m-8">
@@ -15,17 +19,19 @@ const Home = () => {
         </p>
         <div className="d-flex flex-col homepage-actions-wrapper">
           <Link
-            to="/"
-            className="btn btn-primary rounded-sm text-sm p-4 text-dec-none text-center"
+            to={status ? "/notes" : "/signup"}
+            className="btn btn-primary rounded-sm text-md p-4 text-dec-none text-center"
           >
-            Join now
+            {status ? "Go to Notes" : "Join now"}
           </Link>
-          <Link
-            className="text-dec-none text-sm mt-4 homepage-action-link"
-            to="/"
-          >
-            Already have an account ?
-          </Link>
+          {!status && (
+            <Link
+              className="text-dec-none text-sm mt-4 homepage-action-link"
+              to="/signin"
+            >
+              Already have an account ?
+            </Link>
+          )}
         </div>
       </div>
       <div className="m-8">
