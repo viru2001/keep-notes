@@ -1,5 +1,5 @@
-..homepage-wrapper {
-  min-height: calc(100vh - 8rem);
+.homepage-wrapper{
+    min-height: calc(100vh - 8rem);
 }
 .homepage-details {
   max-width: 30rem;
