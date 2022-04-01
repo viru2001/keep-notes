@@ -1,0 +1,15 @@
+..homepage-wrapper {
+  min-height: calc(100vh - 8rem);
+}
+.homepage-details {
+  max-width: 30rem;
+}
+.heading-highlight {
+  color: var(--primary-color);
+}
+.homepage-actions-wrapper {
+  margin-top: 6rem;
+}
+.homepage-action-link {
+  color: var(--primary-color);
+}

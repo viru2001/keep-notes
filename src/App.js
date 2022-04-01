@@ -1,7 +1,15 @@
 import "./App.css";
+import { Footer, Navbar } from "./frontend/components";
+import { Router } from "./frontend/routes/Router";
 
 function App() {
-  return <div>Welcome</div>;
+  return (
+    <>
+      <Navbar />
+      <Router />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
