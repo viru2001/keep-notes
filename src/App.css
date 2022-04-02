@@ -2,6 +2,8 @@
   --primary-color: #177e89; /* 1B909D */
   --primary-dark-color: #126069;
   --primary-light-color: #40b7c4;
+  --primary-faint-color: #a7f6ff;
+  --hamburg-icon-hove-bg: #3c404314;
 }
 
 .border-none {
@@ -9,4 +11,7 @@
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.main-content-page-wrapper {
+  min-height: calc(100vh - 8rem);
 }

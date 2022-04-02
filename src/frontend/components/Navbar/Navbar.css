@@ -1,0 +1,8 @@
+.hamburger-btn {
+  background: transparent;
+}
+.hamburger-btn:hover {
+  background-color: var(--hamburg-icon-hove-bg);
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}

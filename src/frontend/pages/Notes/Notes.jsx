@@ -1,4 +1,10 @@
+import "./Notes.css";
 const Notes = () => {
-  return <h1>Notes Page</h1>;
+  return (
+    <div className="d-flex notes-page-wrapper">
+      {/* {isSidebarOpen && <Sidebar />} */}
+      <h1>Notes page</h1>
+    </div>
+  );
 };
 export { Notes };
