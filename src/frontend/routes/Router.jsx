@@ -1,5 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import { Home, Signin, Signup, Notes, Archives, Labels, Trash } from "../pages";
+import {
+  Home,
+  Signin,
+  Signup,
+  Notes,
+  Archives,
+  Labels,
+  Trash,
+} from "frontend/pages";
 
 const Router = () => {
   return (
