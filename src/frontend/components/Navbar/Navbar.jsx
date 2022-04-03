@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { NotesIcon } from "../../assets";
+import { NotesIcon } from "frontend/assets";
 
 const Navbar = () => {
   const status = false;
