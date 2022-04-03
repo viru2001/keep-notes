@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import "../Signin/Signin.css";
-import "../../../App.css";
+import "frontend/pages/Signin/Signin.css";
+import "App.css";
 import { useState } from "react";
-import { useAuth } from "../../context";
-import { signupService } from "../../services";
+import { useAuth } from "frontend/context";
+import { signupService } from "frontend/services";
 const Signup = () => {
   const { setAuth } = useAuth();
   const navigate = useNavigate();

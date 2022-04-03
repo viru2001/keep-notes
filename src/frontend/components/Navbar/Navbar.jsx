@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { NotesIcon } from "../../assets";
-import { useAuth } from "../../context";
+import { useAuth } from "frontend/context";
+import { NotesIcon } from "frontend/assets";
 
 const Navbar = () => {
   const {

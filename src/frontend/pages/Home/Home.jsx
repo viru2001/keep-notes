@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { HomepageImage } from "../../assets";
-import { useAuth } from "../../context";
+import { useAuth } from "frontend/context";
+import { HomepageImage } from "frontend/assets";
 import "./Home.css";
 const Home = () => {
   const {

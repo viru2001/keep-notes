@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context";
-import { signinService } from "../../services";
+import { useAuth } from "frontend/context";
+import { signinService } from "frontend/services";
 import "./Signin.css";
 
 const Signin = () => {
