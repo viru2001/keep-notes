@@ -6,6 +6,7 @@ import "react-quill/dist/quill.core.css";
 import "./QuillEditor.css";
 const QuillEditor = () => {
   const [note, setNote] = useState("");
+  
   const handleChange = value => {
     setNote(value);
   };
@@ -22,7 +23,12 @@ const QuillEditor = () => {
           formats={formats}
         />
       </div>
-      <div className="d-flex justify-end p-4">
+      <div className="d-flex justify-between align-center p-4">
+        <div>
+          <button className="btn btn-icon text-md">
+            <span class="material-icons-outlined">palette</span>
+          </button>
+        </div>
         <button
           className="btn text-dec-none btn-primary rounded-sm text-sm p-4 mr-4 add-note-btn"
           onClick={() => setNote("")}
