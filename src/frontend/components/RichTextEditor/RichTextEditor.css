@@ -1,6 +1,7 @@
 /* new note */
 .note-heading {
   border: none;
+  /* border: solid 1px black; */
 }
 .note-heading:focus {
   outline: none;
