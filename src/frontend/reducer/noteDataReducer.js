@@ -8,7 +8,7 @@ const noteDataReducer = (noteData, { type, payload }) => {
       return {
         title: "",
         content: "",
-        createdOn: "",
+        createdAt: "",
       };
     default:
       return noteData;

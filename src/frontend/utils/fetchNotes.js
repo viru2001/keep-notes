@@ -1,15 +1,7 @@
-import axios from "axios";
+import { fetchNotesService } from "frontend/services";
 const fetchNotes = async token => {
-  try {
-    const {
-      data: { notes },
-    } = await axios.get("/api/notes", {
-      headers: { authorization: token },
-    });
-    return notes;
-  } catch (e) {
-    console.log(e);
-  }
+  const notes = await fetchNotesService(token);
+  return notes;
 };
 
 export { fetchNotes };

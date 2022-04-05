@@ -1,6 +1,5 @@
 import "./Notes.css";
 import { RichTextEditor, NotesList } from "frontend/components";
-import { notes } from "./dummyNotes.js";
 import { useAuth, useNotes } from "frontend/context";
 import { useEffect } from "react";
 import { fetchNotes } from "frontend/utils";
@@ -16,7 +15,6 @@ const Notes = () => {
     (async () => {
       const notes = await fetchNotes(token);
       notesDispatch({ type: "FETCH_NOTES", payload: notes });
-      console.log(notes);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

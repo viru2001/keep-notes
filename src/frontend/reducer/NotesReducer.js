@@ -3,7 +3,7 @@ const NotesInitialState = {
   notes: [],
 };
 
-const NotesReducer = (notesState, { type, payload }) => {
+const notesReducer = (notesState, { type, payload }) => {
   switch (type) {
     case "SIDEBAR_TOGGLE":
       return {
@@ -15,8 +15,13 @@ const NotesReducer = (notesState, { type, payload }) => {
         ...notesState,
         notes: payload,
       };
+    case "ADD_NOTE":
+      return {
+        ...notesState,
+        notes: [...notesState.notes, payload],
+      };
     default:
       throw new Error("Unhandled action type");
   }
 };
-export { NotesInitialState, NotesReducer };
+export { NotesInitialState, notesReducer };

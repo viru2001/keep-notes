@@ -3,16 +3,20 @@ import "react-quill/dist/quill.snow.css";
 import { useReducer } from "react";
 import "./RichTextEditor.css";
 import { noteDataReducer } from "frontend/reducer";
+import { useNotes, useAuth } from "frontend/context";
+import { addNoteHandler } from "frontend/utils/addNoteHandler";
 
 const RichTextEditor = () => {
+  const {
+    auth: { token },
+  } = useAuth();
   const [noteData, noteDataDispatch] = useReducer(noteDataReducer, {
     title: "",
     content: "",
-    createdOn: "",
+    createdAt: "",
   });
-
+  const { notesDispatch } = useNotes();
   const { title, content } = noteData;
-  console.log(title, content);
   return (
     <div className="d-flex flex-col new-note-wrapper m-8 rounded-sm">
       <div className="d-flex justify-between align-center">
@@ -35,9 +39,9 @@ const RichTextEditor = () => {
         </div>
         <button
           className="btn text-dec-none btn-primary rounded-sm text-sm p-4 mr-4 add-note-btn"
-          onClick={() => {   
-            noteDataDispatch({ type: "RESET" });
-          }}
+          onClick={() =>
+            addNoteHandler(token, noteData, notesDispatch, noteDataDispatch)
+          }
         >
           Add
         </button>
