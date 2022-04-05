@@ -1,9 +1,24 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "frontend/context";
 import { NotesIcon } from "frontend/assets";
 
 const Navbar = () => {
-  const status = false;
-  const username = "Viresh";
+  const {
+    auth: { status, username },
+    setAuth,
+  } = useAuth();
+  const navigate = useNavigate();
+  const signOutHandler = setAuth => {
+    localStorage.removeItem("AUTH_TOKEN");
+    localStorage.removeItem("username");
+    setAuth(auth => ({
+      ...auth,
+      status: false,
+      token: null,
+      username: "",
+    }));
+    navigate("/");
+  };
 
   const { pathname } = useLocation();
 
@@ -34,13 +49,13 @@ const Navbar = () => {
               {status === true ? (
                 <button
                   className="btn text-dec-none btn-primary rounded-sm text-sm p-4 mr-4"
-                  onClick={() => {}}
+                  onClick={() => signOutHandler(setAuth)}
                 >
                   Signout
                 </button>
               ) : (
                 <Link
-                  to="/"
+                  to="/signin"
                   className="btn text-dec-none btn-primary rounded-sm text-sm p-4 mr-4"
                 >
                   Signin
