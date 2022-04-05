@@ -9,7 +9,6 @@ const QuillEditor = () => {
   const handleChange = value => {
     setNote(value);
   };
-  console.log(note);
   return (
     <>
       <div className="text-editor">
