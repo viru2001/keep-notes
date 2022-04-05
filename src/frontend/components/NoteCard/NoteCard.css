@@ -1,0 +1,6 @@
+.note-card {
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 35rem;
+  border: solid 1px var(--secondary-dark-color);
+}

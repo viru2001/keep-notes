@@ -1,0 +1,10 @@
+.text-editor {
+  max-width: 60rem;
+  min-width: 36rem;
+}
+.add-note-btn {
+  width: 15%;
+}
+.ql-editor {
+  min-height: 8rem;
+}
