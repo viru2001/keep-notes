@@ -7,7 +7,9 @@ const NotesList = ({ notes }) => {
   const {
     notesState: { isSidebarOpen },
   } = useNotes();
-  const items = notes.map(note => <NoteCard noteData={note} />);
+  const items = notes.map(note => {
+    return <NoteCard note={note} key={note._id} />;
+  });
   const breakpointColumnsObj = {
     default: isSidebarOpen ? 3 : 4,
     1100: isSidebarOpen ? 2 : 3,
