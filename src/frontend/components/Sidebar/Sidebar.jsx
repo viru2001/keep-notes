@@ -12,7 +12,7 @@ const Sidebar = () => {
           to="/notes"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          <span class="material-icons-outlined mr-8">description</span>
+          <span className="material-icons-outlined mr-8">description</span>
           Notes
         </NavLink>
       </li>
@@ -22,7 +22,7 @@ const Sidebar = () => {
           to="/archives"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          <span class="material-icons-outlined mr-8">archive</span>
+          <span className="material-icons-outlined mr-8">archive</span>
           Archives
         </NavLink>
       </li>
@@ -32,7 +32,7 @@ const Sidebar = () => {
           to="/labels"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          <span class="material-icons-outlined mr-8">label</span>
+          <span className="material-icons-outlined mr-8">label</span>
           Labels
         </NavLink>
       </li>
@@ -42,7 +42,7 @@ const Sidebar = () => {
           to="/trash"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          <span class="material-icons-outlined mr-8">delete</span>
+          <span className="material-icons-outlined mr-8">delete</span>
           Trash
         </NavLink>
       </li>
