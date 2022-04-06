@@ -55,6 +55,11 @@ const notesReducer = (notesState, { type, payload }) => {
         ...notesState,
         trash: notesState.trash.filter(note => note._id !== payload._id),
       };
+    case "DELETE_FROM_TRASH":
+      return {
+        ...notesState,
+        trash: notesState.trash.filter(note => note._id !== payload),
+      };
     default:
       throw new Error("Unhandled action type");
   }
