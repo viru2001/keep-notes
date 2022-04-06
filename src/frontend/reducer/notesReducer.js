@@ -3,7 +3,7 @@ const NotesInitialState = {
   notes: [],
   archives: [],
   trash: [],
-  isModalShown: false,
+  isModalOpen: false,
 };
 
 const notesReducer = (notesState, { type, payload }) => {
@@ -64,7 +64,7 @@ const notesReducer = (notesState, { type, payload }) => {
     case "MODAL_TOGGLE":
       return {
         ...notesState,
-        isModalShown: !notesState.isModalShown,
+        isModalOpen: !notesState.isModalOpen,
       };
     default:
       throw new Error("Unhandled action type");

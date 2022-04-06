@@ -1,0 +1,54 @@
+import { QuillEditorModal, ColorPalette } from "frontend/components";
+import "react-quill/dist/quill.snow.css";
+import { useReducer, useState } from "react";
+import "./RichTextEditorModal.css";
+import { noteDataReducer } from "frontend/reducer";
+
+const RichTextEditorModal = () => {
+  const [noteData, noteDataDispatch] = useReducer(noteDataReducer, {
+    title: "",
+    content: "",
+    createdAt: "",
+    bgColor: "",
+  });
+  const { title, content } = noteData;
+  const [showColorPalette, setShowColorPalette] = useState(false);
+  return (
+    <div
+      className="d-flex flex-col new-note-wrapper m-8 rounded-sm"
+      style={{ backgroundColor: noteData.bgColor }}
+    >
+      <div className="d-flex justify-between align-center">
+        <input
+          type="text"
+          className="note-heading w-100 p-3 text-md font-wt-bold mt-2"
+          style={{ backgroundColor: noteData.bgColor }}
+          placeholder="Title"
+          value={title}
+          onChange={e =>
+            noteDataDispatch({ type: "SET_TITLE", payload: e.target.value })
+          }
+        />
+      </div>
+      <QuillEditorModal content={content} noteDataDispatch={noteDataDispatch} />
+      <div className="d-flex justify-between align-center p-4 p-relative">
+        <div>
+          <button
+            className="btn btn-icon text-md"
+            onClick={() => setShowColorPalette(prev => !prev)}
+          >
+            <span className="material-icons-outlined">palette</span>
+          </button>
+          {showColorPalette && (
+            <ColorPalette
+              color={noteData.bgColor}
+              noteDataDispatch={noteDataDispatch}
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export { RichTextEditorModal };

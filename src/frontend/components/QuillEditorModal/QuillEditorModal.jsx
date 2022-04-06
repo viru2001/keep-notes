@@ -1,11 +1,10 @@
 import React from "react";
 import ReactQuill from "react-quill";
-import { QuillToolbar, modules, formats } from "./EditorToolbar";
+import { QuillToolbar1, modalModules, formats } from "./EditorToolbarModal";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.core.css";
-import "./QuillEditor.css";
-const QuillEditor = ({ content, noteDataDispatch }) => {
-
+import "./QuillEditorModal.css";
+const QuillEditorModal = ({ content, noteDataDispatch }) => {
   const handleChange = value => {
     noteDataDispatch({ type: "SET_CONTENT", payload: value });
   };
@@ -13,13 +12,13 @@ const QuillEditor = ({ content, noteDataDispatch }) => {
   return (
     <>
       <div className="text-editor">
-        <QuillToolbar />
+        <QuillToolbar1 />
         <ReactQuill
           theme="snow"
           value={content}
           onChange={handleChange}
           placeholder={"Enter Note Here ..."}
-          modules={modules}
+          modules={modalModules}
           formats={formats}
         />
       </div>
@@ -27,4 +26,4 @@ const QuillEditor = ({ content, noteDataDispatch }) => {
   );
 };
 
-export { QuillEditor };
+export { QuillEditorModal };

@@ -18,7 +18,7 @@ const NoteCard = ({ note }) => {
     auth: { token },
   } = useAuth();
   const {
-    notesState: { isModalShown },
+    notesState: { isModalOpen },
     notesDispatch,
   } = useNotes();
   const { title, content, createdAt, bgColor } = note;
@@ -26,7 +26,7 @@ const NoteCard = ({ note }) => {
 
   return (
     <>
-      {isModalShown && <EditNoteModal />}
+      {isModalOpen && <EditNoteModal />}
       <div
         className="ql-editor note-card m-4 rounded-md"
         style={{ backgroundColor: bgColor }}

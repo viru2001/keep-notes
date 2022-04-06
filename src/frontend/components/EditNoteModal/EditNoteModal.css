@@ -1,3 +1,7 @@
 .action-btns-wrapper {
   gap: 2rem;
 }
+.modal-container {
+  max-width: 60rem;
+  min-width: 34rem;
+}
