@@ -9,7 +9,7 @@ const NoteCard = ({ note }) => {
       {parse(`${content}`)}
       <div className="d-flex justify-between align-center pt-4">
         <div className="d-flex flex-col">
-          <span>{new Date(createdAt).toLocaleDateString("in-IN")}</span>
+          <span>{ new Date(createdAt).toLocaleDateString("in-IN")}</span>
           <span>
             {new Date(createdAt)
               .toLocaleTimeString()

@@ -16,7 +16,7 @@ function App() {
         className={
           !sidebarHiddenPaths.includes(pathname)
             ? "d-flex main-content-page-wrapper"
-            : undefined
+            : null
         }
       >
         {!sidebarHiddenPaths.includes(pathname) && isSidebarOpen && <Sidebar />}
