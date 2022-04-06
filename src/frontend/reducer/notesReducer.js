@@ -2,6 +2,7 @@ const NotesInitialState = {
   isSidebarOpen: true,
   notes: [],
   archives: [],
+  trash: [],
 };
 
 const notesReducer = (notesState, { type, payload }) => {
@@ -42,6 +43,17 @@ const notesReducer = (notesState, { type, payload }) => {
         ...notesState,
         archives: notesState.archives.filter(note => note._id !== payload._id),
         notes: [...notesState.notes, payload],
+      };
+    case "ADD_TO_TRASH":
+      return {
+        ...notesState,
+        trash: [...notesState.trash, payload],
+        notes: notesState.notes.filter(note => note._id !== payload._id),
+      };
+    case "RESTORE_FROM_TRASH":
+      return {
+        ...notesState,
+        trash: notesState.trash.filter(note => note._id !== payload._id),
       };
     default:
       throw new Error("Unhandled action type");
