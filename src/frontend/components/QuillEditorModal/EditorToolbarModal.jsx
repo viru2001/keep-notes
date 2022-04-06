@@ -56,9 +56,9 @@ Quill.register({
   "formats/video": Video,
 });
 // Modules object for setting up the Quill editor
-const modules = {
+const modalModules = {
   toolbar: {
-    container: "#toolbar",
+    container: "#toolbar-modal",
     handlers: {
       undo: undoChange,
       redo: redoChange,
@@ -118,9 +118,9 @@ const formats = [
 ];
 
 // Quill Toolbar component
-const QuillToolbar = () => {
+const QuillToolbar1 = () => {
   return (
-    <div id="toolbar">
+    <div id="toolbar-modal">
       <span className="ql-formats">
         <select className="ql-font" defaultValue="sans-serif">
           <option value="sans-serif">Sans Serif</option>
@@ -185,4 +185,4 @@ const QuillToolbar = () => {
   );
 };
 
-export { QuillToolbar, formats, modules };
+export { QuillToolbar1, formats, modalModules };
