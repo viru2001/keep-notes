@@ -1,3 +1,4 @@
+export { EditNoteModal } from "./EditNoteModal/EditNoteModal";
 export { NotesList } from "./NotesList/NotesList";
 export { RichTextEditor } from "./RichTextEditor/RichTextEditor";
 export { QuillEditor } from "./QuillEditor/QuillEditor";

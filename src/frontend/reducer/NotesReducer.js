@@ -3,6 +3,7 @@ const NotesInitialState = {
   notes: [],
   archives: [],
   trash: [],
+  isModalShown: false,
 };
 
 const notesReducer = (notesState, { type, payload }) => {
@@ -59,6 +60,11 @@ const notesReducer = (notesState, { type, payload }) => {
       return {
         ...notesState,
         trash: notesState.trash.filter(note => note._id !== payload),
+      };
+    case "MODAL_TOGGLE":
+      return {
+        ...notesState,
+        isModalShown: !notesState.isModalShown,
       };
     default:
       throw new Error("Unhandled action type");
