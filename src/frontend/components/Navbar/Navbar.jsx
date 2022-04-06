@@ -24,16 +24,19 @@ const Navbar = () => {
   const { pathname } = useLocation();
 
   const { notesDispatch } = useNotes();
+  const sidebarHiddenPaths = ["/", "/signin", "/signup"];
   return (
     <>
       <header className="navbar-wrapper d-flex flex-wrap align-center justify-between box-shadow-lg">
         <div className="d-flex pl-4 align-center">
-          <button
-            className="btn text-md px-8 hamburger-btn"
-            onClick={() => notesDispatch({ type: "SIDEBAR_TOGGLE" })}
-          >
-            <i className="fas fa-bars hamburger-icon"></i>
-          </button>
+          {!sidebarHiddenPaths.includes(pathname) &&
+            <button
+              className="btn text-md px-8 hamburger-btn"
+              onClick={() => notesDispatch({ type: "SIDEBAR_TOGGLE" })}
+            >
+              <i className="fas fa-bars hamburger-icon"></i>
+            </button>
+          }
 
           <div className="d-flex align-center">
             <img src={NotesIcon} alt="Notes" />
