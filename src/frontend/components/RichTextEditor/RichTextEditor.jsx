@@ -54,9 +54,10 @@ const RichTextEditor = () => {
         </div>
         <button
           className="btn text-dec-none btn-primary rounded-sm text-sm p-4 mr-4 add-note-btn"
-          onClick={() =>
-            addNoteHandler(token, noteData, notesDispatch, noteDataDispatch)
-          }
+          onClick={() => {
+            if (noteData.content !== "")
+              addNoteHandler(token, noteData, notesDispatch, noteDataDispatch);
+          }}
         >
           Add
         </button>
