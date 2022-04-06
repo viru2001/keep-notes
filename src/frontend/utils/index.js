@@ -1,3 +1,4 @@
+export { unarchiveNote } from "./archiveNotesUtils/unarchiveNote";
 export { deleteArchiveForever } from "./archiveNotesUtils/deleteArchiveForever";
 export { addToArchives } from "./archiveNotesUtils/addToArchives";
 export { fetchArchiveNotes } from "./archiveNotesUtils/fetchArchiveNotes";

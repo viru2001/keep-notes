@@ -37,6 +37,12 @@ const notesReducer = (notesState, { type, payload }) => {
         ...notesState,
         archives: notesState.archives.filter(note => note._id !== payload),
       };
+    case "UNARCHIVE":
+      return {
+        ...notesState,
+        archives: notesState.archives.filter(note => note._id !== payload._id),
+        notes: [...notesState.notes, payload],
+      };
     default:
       throw new Error("Unhandled action type");
   }

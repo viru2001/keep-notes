@@ -26,7 +26,7 @@ const NotesList = ({ notes }) => {
     </Masonry>
   ) : (
     <div>
-      <h1>No Notes Added Here</h1>
+      <h1 className="mt-8 headline-lg">No Notes Added Here</h1>
     </div>
   );
 };

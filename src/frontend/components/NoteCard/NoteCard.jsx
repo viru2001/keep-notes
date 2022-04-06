@@ -1,7 +1,11 @@
 import React from "react";
 import "./NoteCard.css";
 import parse from "html-react-parser";
-import { addToArchives, deleteArchiveForever } from "frontend/utils";
+import {
+  addToArchives,
+  deleteArchiveForever,
+  unarchiveNote,
+} from "frontend/utils";
 import { useNotes, useAuth } from "frontend/context";
 import { useLocation } from "react-router-dom";
 const NoteCard = ({ note }) => {
@@ -49,7 +53,10 @@ const NoteCard = ({ note }) => {
           )}
           {pathname === "/archives" && (
             <>
-              <button className="btn btn-icon text-md">
+              <button
+                className="btn btn-icon text-md"
+                onClick={() => unarchiveNote(note, token, notesDispatch)}
+              >
                 <span className="material-icons-outlined">unarchive</span>
               </button>
               <button

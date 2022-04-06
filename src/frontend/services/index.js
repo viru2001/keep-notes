@@ -1,3 +1,4 @@
+export { unarchiveNoteService } from "./ArchiveNotesServices/unarchiveNoteService.js";
 export { addToArchiveService } from "./ArchiveNotesServices/addToArchiveService.js";
 export { fetchArchiveNotesService } from "./ArchiveNotesServices/fetchArchiveNotesService.js";
 export { fetchNotesService } from "./NotesServices/fetchNotesService.js";
