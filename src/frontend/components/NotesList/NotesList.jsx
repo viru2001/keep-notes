@@ -16,7 +16,7 @@ const NotesList = ({ notes }) => {
     720: isSidebarOpen ? 1 : 2,
     500: 1,
   };
-  return (
+  return notes.length > 0 ? (
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className="my-masonry-grid"
@@ -24,6 +24,10 @@ const NotesList = ({ notes }) => {
     >
       {items}
     </Masonry>
+  ) : (
+    <div>
+      <h1>No Notes Added Here</h1>
+    </div>
   );
 };
 export { NotesList };

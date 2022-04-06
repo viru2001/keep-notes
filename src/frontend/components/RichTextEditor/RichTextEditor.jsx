@@ -4,7 +4,7 @@ import { useReducer, useState } from "react";
 import "./RichTextEditor.css";
 import { noteDataReducer } from "frontend/reducer";
 import { useNotes, useAuth } from "frontend/context";
-import { addNoteHandler } from "frontend/utils/addNoteHandler";
+import { addNoteHandler } from "frontend/utils/";
 
 const RichTextEditor = () => {
   const {
@@ -55,7 +55,6 @@ const RichTextEditor = () => {
         <button
           className="btn text-dec-none btn-primary rounded-sm text-sm p-4 mr-4 add-note-btn"
           onClick={() => {
-            console.log(noteData.content !== "");
             if (noteData.content !== "")
               addNoteHandler(token, noteData, notesDispatch, noteDataDispatch);
           }}
