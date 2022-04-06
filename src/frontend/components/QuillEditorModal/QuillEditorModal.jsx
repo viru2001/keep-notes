@@ -6,7 +6,10 @@ import "react-quill/dist/quill.core.css";
 import "./QuillEditorModal.css";
 const QuillEditorModal = ({ content, noteDataDispatch }) => {
   const handleChange = value => {
-    noteDataDispatch({ type: "SET_CONTENT", payload: value });
+    noteDataDispatch({
+      type: "SET_EDITED_NOTE",
+      payload: { toEdit: "content", value: value },
+    });
   };
 
   return (

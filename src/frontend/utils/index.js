@@ -1,3 +1,4 @@
+export { updateNote } from "./updateNoteUtils/updateNote";
 export { deleteFromTrash } from "./TrashUtils/deleteFromTrash";
 export { restoreFromTrash } from "./TrashUtils/restoreFromTrash";
 export { addToTrash } from "./TrashUtils/addToTrash";

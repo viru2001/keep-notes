@@ -21,7 +21,7 @@ const NoteCard = ({ note }) => {
     notesState: { isModalOpen },
     notesDispatch,
   } = useNotes();
-  const { title, content, createdAt, bgColor } = note;
+  const { title, content, createdAt, bgColor, _id } = note;
   const { pathname } = useLocation();
 
   return (
@@ -45,13 +45,11 @@ const NoteCard = ({ note }) => {
           <div className="d-flex card-footer-icons">
             {pathname === "/notes" && (
               <>
-                <button className="btn btn-icon text-md">
-                  <span className="material-icons-outlined">palette</span>
-                </button>
                 <button
                   className="btn btn-icon text-md"
                   onClick={() => {
                     notesDispatch({ type: "MODAL_TOGGLE" });
+                    notesDispatch({ type: "SET_NOTE_TO_EDIT", payload: _id });
                   }}
                 >
                   <span className="material-icons-outlined">edit</span>
