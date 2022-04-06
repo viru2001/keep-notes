@@ -1,0 +1,16 @@
+.sidebar-wrapper li {
+  width: 30rem;
+  font-size: 2rem;
+}
+
+.sidebar-nav-link-item {
+  color: var(--dark-text-color);
+  padding: 1.8rem 2.5rem;
+  border-radius: 0 3rem 3rem 0;
+}
+
+@media (max-width: 680px) {
+  .sidebar-wrapper {
+    display: none;
+  }
+}
