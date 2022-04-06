@@ -1,4 +1,3 @@
-import "./Notes.css";
 import { RichTextEditor, NotesList } from "frontend/components";
 import { useAuth, useNotes } from "frontend/context";
 import { useEffect } from "react";
