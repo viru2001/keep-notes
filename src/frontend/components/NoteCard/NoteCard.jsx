@@ -2,9 +2,9 @@ import React from "react";
 import "./NoteCard.css";
 import parse from "html-react-parser";
 const NoteCard = ({ note }) => {
-  const { title, content, createdAt } = note;
+  const { title, content, createdAt,bgColor } = note;
   return (
-    <div className="ql-editor note-card m-4 rounded-md">
+    <div className="ql-editor note-card m-4 rounded-md" style={{backgroundColor:bgColor}}>
       <h2>{title}</h2>
       {parse(`${content}`)}
       <div className="d-flex justify-between align-center pt-4">
