@@ -1,1 +1,1 @@
-export { NotesInitialState, NotesReducer } from "./NotesReducer";
+export { NotesInitialState, notesReducer } from "./notesReducer";

@@ -1,11 +1,11 @@
 import { createContext, useContext, useReducer } from "react";
-import { NotesInitialState, NotesReducer } from "../reducer";
+import { NotesInitialState, notesReducer } from "../reducer";
 
 const NotesContext = createContext(null);
 
 const NotesProvider = ({ children }) => {
   const [notesState, notesDispatch] = useReducer(
-    NotesReducer,
+    notesReducer,
     NotesInitialState
   );
   return (
