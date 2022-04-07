@@ -5,6 +5,7 @@ const NotesInitialState = {
   trash: [],
   isModalOpen: false,
   noteBeingEdited: {},
+  sortByTime: "",
 };
 
 const notesReducer = (notesState, { type, payload }) => {
@@ -87,6 +88,16 @@ const notesReducer = (notesState, { type, payload }) => {
         notes: notesState.notes.map(note =>
           note._id === payload._id ? payload : note
         ),
+      };
+    case "SORT_BY_TIME":
+      return {
+        ...notesState,
+        sortByTime:
+          payload === "oldest-first"
+            ? "OLDEST_FIRST"
+            : payload === "newest-first"
+            ? "NEWEST_FIRST"
+            : "",
       };
     default:
       throw new Error("Unhandled action type");

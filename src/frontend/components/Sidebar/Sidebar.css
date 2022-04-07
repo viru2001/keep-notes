@@ -14,3 +14,8 @@
     display: none;
   }
 }
+.btn-clear {
+  text-decoration: underline;
+  background: transparent;
+  color: var(--primary-color);
+}
