@@ -3,6 +3,7 @@ import { useAuth, useNotes } from "frontend/context";
 import { NotesIcon } from "frontend/assets";
 
 import "./Navbar.css";
+import { useWindowSize } from "frontend/hooks";
 const Navbar = () => {
   const {
     auth: { status, username },
@@ -22,21 +23,27 @@ const Navbar = () => {
   };
 
   const { pathname } = useLocation();
-
   const { notesDispatch } = useNotes();
   const sidebarHiddenPaths = ["/", "/signin", "/signup"];
+
+  const { width } = useWindowSize();
+
   return (
     <>
       <header className="navbar-wrapper d-flex flex-wrap align-center justify-between box-shadow-lg">
         <div className="d-flex pl-4 align-center">
-          {!sidebarHiddenPaths.includes(pathname) &&
+          {!sidebarHiddenPaths.includes(pathname) && (
             <button
               className="btn text-md px-8 hamburger-btn"
-              onClick={() => notesDispatch({ type: "SIDEBAR_TOGGLE" })}
+              onClick={() => {
+                width < 680
+                  ? notesDispatch({ type: "MOBILE_SIDEBAR_TOGGLE" })
+                  : notesDispatch({ type: "SIDEBAR_TOGGLE" });
+              }}
             >
               <i className="fas fa-bars hamburger-icon"></i>
             </button>
-          }
+          )}
 
           <div className="d-flex align-center">
             <img src={NotesIcon} alt="Notes" />
