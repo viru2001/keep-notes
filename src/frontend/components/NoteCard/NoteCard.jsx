@@ -5,9 +5,13 @@ import {
   addToArchives,
   deleteArchiveForever,
   unarchiveNote,
+  addToTrash,
+  restoreFromTrash,
+  deleteFromTrash,
 } from "frontend/utils";
 import { useNotes, useAuth } from "frontend/context";
 import { useLocation } from "react-router-dom";
+
 const NoteCard = ({ note }) => {
   const {
     auth: { token },
@@ -46,7 +50,10 @@ const NoteCard = ({ note }) => {
               >
                 <span className="material-icons-outlined">archive</span>
               </button>
-              <button className="btn btn-icon text-md">
+              <button
+                className="btn btn-icon text-md"
+                onClick={() => addToTrash(note, token, notesDispatch)}
+              >
                 <span className="material-icons-outlined">delete</span>
               </button>
             </>
@@ -59,11 +66,31 @@ const NoteCard = ({ note }) => {
               >
                 <span className="material-icons-outlined">unarchive</span>
               </button>
+
               <button
                 className="btn btn-icon text-md"
                 onClick={() =>
                   deleteArchiveForever(note._id, token, notesDispatch)
                 }
+              >
+                <span className="material-icons-outlined">delete_forever</span>
+              </button>
+            </>
+          )}
+          {pathname === "/trash" && (
+            <>
+              <button
+                className="btn btn-icon text-md"
+                onClick={() => restoreFromTrash(note, token, notesDispatch)}
+              >
+                <span className="material-icons-outlined">
+                  restore_from_trash
+                </span>
+              </button>
+
+              <button
+                className="btn btn-icon text-md"
+                onClick={() => deleteFromTrash(note._id, notesDispatch)}
               >
                 <span className="material-icons-outlined">delete_forever</span>
               </button>
