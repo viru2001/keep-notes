@@ -6,6 +6,7 @@ const NotesInitialState = {
   isModalOpen: false,
   noteBeingEdited: {},
   sortByTime: "",
+  isMobileSidebarOpen: false,
 };
 
 const notesReducer = (notesState, { type, payload }) => {
@@ -98,6 +99,11 @@ const notesReducer = (notesState, { type, payload }) => {
             : payload === "newest-first"
             ? "NEWEST_FIRST"
             : "",
+      };
+    case "MOBILE_SIDEBAR_TOGGLE":
+      return {
+        ...notesState,
+        isMobileSidebarOpen: !notesState.isMobileSidebarOpen,
       };
     default:
       throw new Error("Unhandled action type");

@@ -11,8 +11,8 @@ const Sidebar = () => {
   } = useNotes();
   const { pathname } = useLocation();
   return (
-    <div className="d-flex flex-col">
-      <ul className="sidebar-wrapper d-flex flex-col mt-6">
+    <div className="d-flex flex-col sidebar-wrapper">
+      <ul className="d-flex flex-col mt-6">
         <li>
           <NavLink
             className="sidebar-nav-link-item text-dec-none font-wt-semibold d-flex align-center"

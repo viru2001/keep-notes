@@ -1,3 +1,4 @@
+export { MobileSidebar } from "./Sidebar/MobileSidebar/MobileSidebar";
 export { EditNoteModal } from "./EditNoteModal/EditNoteModal";
 export { NotesList } from "./NotesList/NotesList";
 export { RichTextEditor } from "./RichTextEditor/RichTextEditor";
