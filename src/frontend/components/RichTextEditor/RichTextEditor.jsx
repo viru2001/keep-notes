@@ -4,7 +4,7 @@ import { useReducer, useState } from "react";
 import "./RichTextEditor.css";
 import { noteDataReducer } from "frontend/reducer";
 import { useNotes, useAuth } from "frontend/context";
-import { addNoteHandler } from "frontend/utils/addNoteHandler";
+import { addNoteHandler } from "frontend/utils/";
 
 const RichTextEditor = () => {
   const {
