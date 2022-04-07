@@ -3,6 +3,8 @@ const NotesInitialState = {
   notes: [],
   archives: [],
   trash: [],
+  isModalOpen: false,
+  noteBeingEdited: {},
 };
 
 const notesReducer = (notesState, { type, payload }) => {
@@ -59,6 +61,32 @@ const notesReducer = (notesState, { type, payload }) => {
       return {
         ...notesState,
         trash: notesState.trash.filter(note => note._id !== payload),
+      };
+    case "MODAL_TOGGLE":
+      return {
+        ...notesState,
+        isModalOpen: !notesState.isModalOpen,
+      };
+    case "SET_NOTE_TO_EDIT":
+      return {
+        ...notesState,
+        noteBeingEdited: notesState.notes.find(note => note._id === payload),
+      };
+    case "SET_EDITED_NOTE":
+      return {
+        ...notesState,
+        noteBeingEdited: {
+          ...notesState.noteBeingEdited,
+          [payload.toEdit]: payload.value,
+        },
+      };
+    case "UPDATE_NOTE":
+      return {
+        ...notesState,
+        noteBeingEdited: {},
+        notes: notesState.notes.map(note =>
+          note._id === payload._id ? payload : note
+        ),
       };
     default:
       throw new Error("Unhandled action type");
