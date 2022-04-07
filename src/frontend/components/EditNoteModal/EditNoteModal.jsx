@@ -10,7 +10,7 @@ const EditNoteModal = () => {
       className="modal-wrapper w-100 h-100 justify-center align-center container-center p-fixed"
       id="simple-modal-wrapper"
     >
-      <div className="modal-container rounded-md">
+      <div className="edit-modal-container rounded-md">
         <div className="p-8">
           <RichTextEditor />
         </div>
