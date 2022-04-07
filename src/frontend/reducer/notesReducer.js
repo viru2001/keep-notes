@@ -2,6 +2,10 @@ const NotesInitialState = {
   isSidebarOpen: true,
   notes: [],
   archives: [],
+  trash: [],
+  isModalOpen: false,
+  noteBeingEdited: {},
+  sortByTime: "",
 };
 
 const notesReducer = (notesState, { type, payload }) => {
@@ -42,6 +46,58 @@ const notesReducer = (notesState, { type, payload }) => {
         ...notesState,
         archives: notesState.archives.filter(note => note._id !== payload._id),
         notes: [...notesState.notes, payload],
+      };
+    case "ADD_TO_TRASH":
+      return {
+        ...notesState,
+        trash: [...notesState.trash, payload],
+        notes: notesState.notes.filter(note => note._id !== payload._id),
+      };
+    case "RESTORE_FROM_TRASH":
+      return {
+        ...notesState,
+        trash: notesState.trash.filter(note => note._id !== payload._id),
+      };
+    case "DELETE_FROM_TRASH":
+      return {
+        ...notesState,
+        trash: notesState.trash.filter(note => note._id !== payload),
+      };
+    case "MODAL_TOGGLE":
+      return {
+        ...notesState,
+        isModalOpen: !notesState.isModalOpen,
+      };
+    case "SET_NOTE_TO_EDIT":
+      return {
+        ...notesState,
+        noteBeingEdited: notesState.notes.find(note => note._id === payload),
+      };
+    case "SET_EDITED_NOTE":
+      return {
+        ...notesState,
+        noteBeingEdited: {
+          ...notesState.noteBeingEdited,
+          [payload.toEdit]: payload.value,
+        },
+      };
+    case "UPDATE_NOTE":
+      return {
+        ...notesState,
+        noteBeingEdited: {},
+        notes: notesState.notes.map(note =>
+          note._id === payload._id ? payload : note
+        ),
+      };
+    case "SORT_BY_TIME":
+      return {
+        ...notesState,
+        sortByTime:
+          payload === "oldest-first"
+            ? "OLDEST_FIRST"
+            : payload === "newest-first"
+            ? "NEWEST_FIRST"
+            : "",
       };
     default:
       throw new Error("Unhandled action type");

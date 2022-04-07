@@ -1,10 +1,10 @@
 import { RichTextEditor, NotesList } from "frontend/components";
 import { useAuth, useNotes } from "frontend/context";
 import { useEffect } from "react";
-import { fetchNotes } from "frontend/utils";
+import { fetchNotes, sortNotes } from "frontend/utils";
 const Notes = () => {
   const {
-    notesState: { notes },
+    notesState: { notes, sortByTime },
     notesDispatch,
   } = useNotes();
   const {
@@ -17,10 +17,12 @@ const Notes = () => {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const sortedNotes = sortNotes(notes, sortByTime);
   return (
     <div className="d-flex align-center flex-col w-100">
       <RichTextEditor />
-      <NotesList notes={notes} />
+      <NotesList notes={sortedNotes} />
     </div>
   );
 };

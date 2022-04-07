@@ -1,3 +1,8 @@
+export { sortNotes } from "./sortUtils/sortNotes";
+export { updateNote } from "./updateNoteUtils/updateNote";
+export { deleteFromTrash } from "./TrashUtils/deleteFromTrash";
+export { restoreFromTrash } from "./TrashUtils/restoreFromTrash";
+export { addToTrash } from "./TrashUtils/addToTrash";
 export { unarchiveNote } from "./archiveNotesUtils/unarchiveNote";
 export { deleteArchiveForever } from "./archiveNotesUtils/deleteArchiveForever";
 export { addToArchives } from "./archiveNotesUtils/addToArchives";
