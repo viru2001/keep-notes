@@ -1,5 +1,6 @@
-
 .modal-container {
-  max-width: 60rem;
-  min-width: 34rem;
+  /* max-width: 60rem; */
+  /* min-width: 34rem; */
+  width: 45vw;
+  height: 50vh;
 }
