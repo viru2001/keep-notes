@@ -12,9 +12,9 @@ const NotesList = ({ notes }) => {
   });
   const breakpointColumnsObj = {
     default: isSidebarOpen ? 3 : 4,
-    1100: isSidebarOpen ? 2 : 3,
-    720: isSidebarOpen ? 1 : 2,
-    500: 1,
+    1260: isSidebarOpen ? 2 : 3,
+    1100: isSidebarOpen ? 1 : 2,
+    768: 1,
   };
   return notes.length > 0 ? (
     <Masonry

@@ -1,5 +1,15 @@
+.edit-modal-container {
+  width: 60vw;
+  height: 60vh;
+}
 
-.modal-container {
-  max-width: 60rem;
-  min-width: 34rem;
+@media (max-width: 768px) {
+  .edit-modal-container {
+    width: 80vw;
+  }
+}
+@media (max-width: 600px) {
+  .edit-modal-container {
+    width: 95vw;
+  }
 }

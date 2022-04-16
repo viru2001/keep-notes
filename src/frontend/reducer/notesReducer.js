@@ -74,20 +74,12 @@ const notesReducer = (notesState, { type, payload }) => {
         ...notesState,
         noteBeingEdited: notesState.notes.find(note => note._id === payload),
       };
-    case "SET_EDITED_NOTE":
-      return {
-        ...notesState,
-        noteBeingEdited: {
-          ...notesState.noteBeingEdited,
-          [payload.toEdit]: payload.value,
-        },
-      };
     case "UPDATE_NOTE":
       return {
         ...notesState,
         noteBeingEdited: {},
         notes: notesState.notes.map(note =>
-          note._id === payload._id ? payload : note
+          note._id === payload._id ? { ...note, ...payload } : note
         ),
       };
     case "SORT_BY_TIME":
