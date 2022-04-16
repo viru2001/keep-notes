@@ -11,37 +11,39 @@ const RichTextEditor = () => {
   const {
     auth: { token },
   } = useAuth();
-  const [noteData, noteDataDispatch] = useReducer(noteDataReducer, {
-    title: "",
-    content: "",
-    createdAt: "",
-    bgColor: "",
-  });
   const {
     notesState: { isModalOpen, noteBeingEdited },
     notesDispatch,
   } = useNotes();
-  const { title, content, bgColor } = isModalOpen ? noteBeingEdited : noteData;
+
+  const [noteData, noteDataDispatch] = useReducer(
+    noteDataReducer,
+    isModalOpen
+      ? noteBeingEdited
+      : {
+          title: "",
+          content: "",
+          createdAt: "",
+          bgColor: "",
+        }
+  );
+
+  const { title, content, bgColor } = noteData;
   const [showColorPalette, setShowColorPalette] = useState(false);
   return (
     <div
       className="d-flex flex-col new-note-wrapper m-8 rounded-sm"
-      style={{ backgroundColor: bgColor}}
+      style={{ backgroundColor: bgColor || "#fff" }}
     >
       <div className="d-flex justify-between align-center">
         <input
           type="text"
           className="note-heading w-100 p-3 text-md font-wt-bold mt-2"
-          style={{ backgroundColor: bgColor}}
+          style={{ backgroundColor: bgColor || "#fff" }}
           placeholder="Title"
           value={title}
           onChange={e =>
-            isModalOpen
-              ? notesDispatch({
-                  type: "SET_EDITED_NOTE",
-                  payload: { toEdit: "title", value: e.target.value },
-                })
-              : noteDataDispatch({ type: "SET_TITLE", payload: e.target.value })
+            noteDataDispatch({ type: "SET_TITLE", payload: e.target.value })
           }
         />
       </div>
@@ -71,7 +73,8 @@ const RichTextEditor = () => {
               className="btn btn-primary btn-action rounded-sm text-sm p-3"
               onClick={() => {
                 notesDispatch({ type: "MODAL_TOGGLE" });
-                updateNote(token, noteBeingEdited, notesDispatch);
+                console.log(noteData);
+                updateNote(token, noteData, notesDispatch);
               }}
             >
               Update
